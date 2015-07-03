@@ -159,3 +159,8 @@ dist/
 
 ### log files ###
 *.log
+
+# Terry's customisations
+node/
+node_modules/
+*~

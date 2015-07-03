@@ -1,0 +1,10 @@
+
+server:
+    port: 8080
+management:
+    port: 8081
+
+# Default to 0 to prevent caching in dev
+spring:
+    resources:
+        cache-period: 0
