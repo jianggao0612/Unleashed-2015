@@ -9,10 +9,10 @@
         #map_canvas { height: 100%}
         #panel {height: 100%}
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript">
     
-    //window.alert("Hello");
     var x, y;
     var markersArray = [];
     var image = 'images/cycling.png';
@@ -25,7 +25,11 @@
         };
         var map = new google.maps.Map(document.getElementById("map_canvas"),
           myOptions);
-
+		
+		window.alert("Starting server test call.");
+		testServerCall();
+		//window.alert(data.x.value);
+		
         var marker = new google.maps.Marker({
             position: center,
             map: map,
@@ -85,7 +89,39 @@
     function calcDist(){
         //calculate distances for smoother annimation???
     }
-
+	
+		
+	
+	/*
+	function testServerCall(){
+		$(document).ready(function() {
+			$.get("http://unleashed.tmoschou.id.au:8080/test",
+				{
+					latitude: -34.92,
+					longitude: 138.59
+				},function(data) {
+				
+				var testData = data.x;
+				window.alert("Hello");
+			},"json")
+		});
+	}
+	*/
+	
+	function testServerCall(){
+		$(document).ready(function() {
+    		$.ajax({
+        		url: "http://unleashed.tmoschou.id.au:8080/test"
+    			}).then(function(data) {
+				$('.test-longitude').append(data.x);
+				$('.test-latitude').append(data.y);
+				window.alert(data.x);
+				window.alert(data.y);
+    		});
+		});
+	}
+	
+	
     </script>
 </head>
 <body onload="initialize()">
