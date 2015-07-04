@@ -4,11 +4,11 @@ import au.id.tmoschou.unleashed.game.server.domain.Location;
 import au.id.tmoschou.unleashed.game.server.event.BikeRackPrintEvent;
 import au.id.tmoschou.unleashed.game.server.event.BikeRackPrintedEvent;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 
-/**
- * Created by Gao on 4/07/15.
- */
+@Component
 public class BikeRackEventService {
     public BikeRackPrintedEvent printBikeRack (BikeRackPrintEvent bikeRackPrintEvent) {
 

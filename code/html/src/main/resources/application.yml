@@ -1,0 +1,10 @@
+
+server:
+    port: 8000
+management:
+    port: 8001
+
+# Default to 0 to prevent caching in dev
+spring:
+    resources:
+        cache-period: 0
