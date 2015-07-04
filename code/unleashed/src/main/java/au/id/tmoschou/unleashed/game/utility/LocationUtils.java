@@ -1,6 +1,7 @@
 package au.id.tmoschou.unleashed.game.utility;
 
 import au.id.tmoschou.unleashed.game.location.GeoPoint;
+import au.id.tmoschou.unleashed.game.location.Location;
 import au.id.tmoschou.unleashed.game.location.LocationEdge;
 
 import java.util.ArrayList;
@@ -57,21 +58,15 @@ public class LocationUtils {
 	public static ArrayList<GeoPoint> getRadiusPoints(GeoPoint centre) {
 		ArrayList<GeoPoint> result = new ArrayList<>();
 
-		if(_ry == null || _rx == null) {
+		if (_ry == null || _rx == null) {
 			setUpRadiusArrays();
 		}
 
-		for(int i = 0; i< NUM_POINTS; i++) {
-			result.add(new GeoPoint(centre.x+_rx[i], centre.y+_ry[i]));
+		for (int i = 0; i < NUM_POINTS; i++) {
+			result.add(new GeoPoint(centre.x + _rx[i], centre.y + _ry[i]));
 		}
 
 		return result;
-	}
-
-	public static double getDistance(GeoPoint a, GeoPoint b) {
-		double sq_x = Math.pow(Math.abs(a.x - b.x),2);
-		double sq_y = Math.pow(Math.abs(a.y - b.y),2);
-		return Math.sqrt(sq_x - sq_y);
 	}
 
 }

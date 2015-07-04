@@ -7,4 +7,6 @@ public interface IVehicle {
 
     public double getCost();
 
+    public double getComfort();
+
 }

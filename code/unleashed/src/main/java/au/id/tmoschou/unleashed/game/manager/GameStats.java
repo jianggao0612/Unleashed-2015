@@ -1,7 +1,9 @@
 package au.id.tmoschou.unleashed.game.manager;
 
+import au.id.tmoschou.unleashed.game.location.GeoPoint;
 import au.id.tmoschou.unleashed.game.location.MovementLocation;
 import au.id.tmoschou.unleashed.game.location.PlayerLocation;
+import au.id.tmoschou.unleashed.game.location.SpecialLocation;
 import au.id.tmoschou.unleashed.game.vehicle.IBike;
 import au.id.tmoschou.unleashed.game.vehicle.ICar;
 
@@ -10,22 +12,30 @@ import org.springframework.stereotype.Component;
 @Component
 public class GameStats {
 
-	public static double score;
+	private static GameStats _gameStats = new GameStats();
 
-	public static PlayerLocation player;
+	public static GameStats getInstance() {
+		return _gameStats;
+	}
 
-	public static MovementLocation currentLocation;
+	public double score = 100.0;
 
-	public static double carbonEmission;
+	public MovementLocation currentLocation;
 
-	public static double moneySpent;
+	public double carbonEmission = 0.0;
 
-	public static double timeElapsed;
+	public double moneySpent = 0.0;
 
-	public static double currentComfort;
+	public int comfortPercent = 50;
 
-	public static IBike myBike;
+	public PlayerLocation player;
 
-	public static ICar myCar;
+	public IBike myBike;
+
+	public ICar myCar;
+
+	public int numGoalsCompleted = 0;
+
+	public SpecialLocation goalLocation;
 
 }

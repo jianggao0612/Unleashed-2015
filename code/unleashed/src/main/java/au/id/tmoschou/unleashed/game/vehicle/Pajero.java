@@ -15,4 +15,9 @@ public class Pajero implements ICar {
     public double getCost() {
         return 1.24;
     }
+
+    @Override
+    public double getComfort() {
+        return 5;
+    }
 }
