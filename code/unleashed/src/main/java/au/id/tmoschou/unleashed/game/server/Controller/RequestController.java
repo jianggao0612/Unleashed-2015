@@ -46,10 +46,7 @@ public class RequestController {
             @RequestParam(value = "latitude", required = true) String latitude,
             @RequestParam(value = "longitude", required = true) String longitude
     ) {
-        return GameMechanicUtils.getNextPoint(
-                new GeoPoint(Double.parseDouble(latitude), Double.parseDouble(longitude)),
-                new ArrayList<>()
-        );
+        return new GeoPoint(Double.parseDouble(latitude), Double.parseDouble(longitude));
     }
 
 
