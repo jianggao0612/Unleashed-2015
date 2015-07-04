@@ -9,7 +9,9 @@ package au.id.tmoschou.unleashed.game.location;
  */
 public class SpecialLocation extends MovementLocation {
 
-    public SpecialLocation(GeoPoint mapPoint) {
+    public SpecialLocation(GeoPoint mapPoint, String iconType) {
         super(mapPoint);
+        this.iconType = iconType;
     }
+
 }

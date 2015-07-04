@@ -6,6 +6,7 @@ public class CarLocation extends MovementLocation implements ITransportLocation 
 
 	public CarLocation(GeoPoint mapPoint) {
 		super(mapPoint);
+		iconType = "CAR_PARKING";
 	}
 
 	// TODO car types may not be used, the location might be difficult to look up from a dataset or database,

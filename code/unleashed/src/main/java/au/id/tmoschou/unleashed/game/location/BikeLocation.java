@@ -8,6 +8,8 @@ public class BikeLocation extends MovementLocation implements ITransportLocation
 		super(mapPoint);
 	}
 
+	public BikeTypes type = BikeTypes.RACK;
+
 	public enum BikeTypes {
 		RACK,
 		HIRE,
@@ -20,6 +22,17 @@ public class BikeLocation extends MovementLocation implements ITransportLocation
 			return Transport.WALK;
 		}
 		return Transport.BIKE;
+	}
+
+	@Override
+	public String getIconType() {
+		switch(type) {
+			case RACK:
+				return "BIKE_RACK";
+			case HIRE:
+				return "BIKE_HIRE";
+		}
+		return iconType;
 	}
 
 }

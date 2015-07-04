@@ -1,13 +1,18 @@
 package au.id.tmoschou.unleashed.game.factory;
 
+import au.id.tmoschou.unleashed.game.csvFileDomains.BikeHire;
+import au.id.tmoschou.unleashed.game.csvFileDomains.BikeRack;
+import au.id.tmoschou.unleashed.game.csvFileDomains.DrinkingFountains;
+import au.id.tmoschou.unleashed.game.csvFileDomains.ParkingMachine;
 import au.id.tmoschou.unleashed.game.location.*;
+import au.id.tmoschou.unleashed.game.location.BikeLocation.BikeTypes;
 
 import java.awt.geom.Point2D;
 import java.util.Map;
 
 public class LocationFactory {
 
-	public static Location createMapLocation( Map<String, String> csvValues ) {
+	public static Location createMapLocation( Object o ) {
 		// TODO
 		// this will create a map object based on database parameters,
 		// this method may query the database for the item,
@@ -18,20 +23,46 @@ public class LocationFactory {
 		
 		// a factory method can exist for creating a LocationEdge
 
-		double lon = Double.parseDouble(csvValues.get("longitude"));
-		double lat = Double.parseDouble(csvValues.get("latitude"));
-
-		GeoPoint point = new GeoPoint(lon, lat);
-
-		Location result;
-
-		if(csvValues.get("type").equals("bike_rack")) {
-			result = new BikeLocation(point);
-		} else {
-			result = new SpecialLocation(point);
+		if(o instanceof BikeHire) {
+			BikeHire bh = (BikeHire) o;
+			BikeLocation bl = new BikeLocation(new GeoPoint(bh.getLongitude(), bh.getLatitude()));
+			bl.type = BikeTypes.HIRE;
+			return bl;
 		}
 
-		return result;
+		if(o instanceof BikeRack) {
+			BikeRack br = (BikeRack) o;
+			BikeLocation bl = new BikeLocation(new GeoPoint(br.getLongitude(), br.getLatitude()));
+			bl.type = BikeTypes.RACK;
+			return bl;
+		}
+
+		if(o instanceof BikeHire) {
+			BikeHire bh = (BikeHire) o;
+			BikeLocation bl = new BikeLocation(new GeoPoint(bh.getLongitude(), bh.getLatitude()));
+			bl.type = BikeTypes.HIRE;
+			return bl;
+		}
+
+		if(o instanceof BikeHire) {
+			BikeHire bh = (BikeHire) o;
+			BikeLocation bl = new BikeLocation(new GeoPoint(bh.getLongitude(), bh.getLatitude()));
+			bl.type = BikeTypes.HIRE;
+			return bl;
+		}
+
+		if(o instanceof ParkingMachine) {
+			ParkingMachine pm = (ParkingMachine) o;
+			CarLocation cl = new CarLocation(new GeoPoint(pm.getLongitude(), pm.getLatitude()));
+			return cl;
+		}
+		if(o instanceof DrinkingFountains) {
+			DrinkingFountains df = (DrinkingFountains) o;
+			SpecialLocation sl = new SpecialLocation(new GeoPoint(df.getLongitude(), df.getLatitude()), "FOUNTAIN");
+			return sl;
+		}
+
+		return null;
 	}
 
 }

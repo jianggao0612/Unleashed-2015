@@ -33,12 +33,12 @@ public class LocationUtils {
 
 	public static double convertGeoToMetres(double geoDistance) {
 		// TODO
-		return geoDistance;
+		return geoDistance/100.0;
 	}
 
 	public static double convertMetresToGeo(double metresDistance) {
 		// TODO
-		return metresDistance;
+		return metresDistance*100.0;
 	}
 
 	private static double[] _rx;
