@@ -11,10 +11,20 @@ public class PlayerLocation extends Location {
     }
 
     public enum Transport {
-        WALK,
-        CAR,
-        BIKE,
-        PUBLIC;
+        WALK ("MAN"),
+        CAR ("CAR"),
+        BIKE ("BIKE"),
+        PUBLIC ("BUS");
+
+        private String str;
+
+        Transport(String s) {
+            str = s;
+        }
+
+        public String getIconType() {
+            return str;
+        }
     }
 
     private Transport transportType;

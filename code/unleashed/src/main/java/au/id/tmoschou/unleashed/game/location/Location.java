@@ -10,7 +10,7 @@ public abstract class Location {
 	public Location(Double mapPoint) {
 		this.point = mapPoint;
 	}
-	
+
 	public Double getPoint() {
 		return point;
 	}

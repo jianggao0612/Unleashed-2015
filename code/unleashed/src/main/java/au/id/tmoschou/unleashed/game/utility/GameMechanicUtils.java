@@ -10,6 +10,12 @@ import java.util.ArrayList;
 
 public class GameMechanicUtils {
 
+	/** get current icon type */
+	public static String getIconType() {
+		return GameStats.player.getTransportType().getIconType();
+	}
+
+	/** get next point given the cursor point and aviable map points */
 	public static Point2D.Double getNextPoint(Point2D.Double clickedPoint, ArrayList<Point2D.Double> mapPoints) {
 
 		MovementLocation result = GameStats.currentLocation;
