@@ -55,7 +55,7 @@ public class GameService {
         @RequestParam(value = "longitude", defaultValue = "1") final double longitude
     ) {
         LOGGER.debug("Got position ({},{})", latitude, longitude);
-        
+
         PlayerLocation location = gameState.getPlayerLocation();
         //location.set(latitude, longitude);
 
