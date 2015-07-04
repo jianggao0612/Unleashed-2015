@@ -32,7 +32,6 @@ public class GameService {
 
 
     @RequestMapping(name = "/update-pos", method = RequestMethod.POST, produces = {"application/json"})
-
     public String updatePosition(
         @RequestParam(value = "latitude", defaultValue = "1") final double latitude,
         @RequestParam(value = "longitude", defaultValue = "1") final double longitude
