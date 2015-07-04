@@ -42,9 +42,11 @@ public class GameMechanicUtils {
 			movementLocations.add(new MovementLocation(mapPoint));
 		}
 
-		// TODO: query dataset to add bike racks and public transport stops to movementLocations
 		// This is where Gao's locations loaded by CSV are used
 		movementLocations.add(GameStats.getInstance().goalLocation);
+		for(ITransportLocation t : GetUtils.getTransportLocations()) {
+			movementLocations.add((MovementLocation) t);
+		}
 
 		if(movementLocations.size() < 1) {
 			return result.getPoint();
@@ -104,6 +106,9 @@ public class GameMechanicUtils {
 	public static ArrayList<MovementLocation> getGeneralMapPoints() {
 		ArrayList<MovementLocation> result = new ArrayList<>();
 		result.add(GameStats.getInstance().goalLocation);
+		for(ITransportLocation t : GetUtils.getTransportLocations()) {
+			result.add((MovementLocation) t);
+		}
 		return result;
 	}
 
