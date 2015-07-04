@@ -1,4 +1,4 @@
-package au.id.tmoschou.unleashed.game.service;
+package au.id.tmoschou.unleashed.game.server.service;
 
 
 

@@ -1,6 +1,9 @@
 package au.id.tmoschou.unleashed.game.factory;
 
 import au.id.tmoschou.unleashed.game.location.Location;
+import au.id.tmoschou.unleashed.game.location.MovementLocation;
+
+import java.awt.geom.Point2D;
 
 public class LocationFactory {
 
@@ -17,5 +20,5 @@ public class LocationFactory {
 		
 		return null;
 	}
-	
+
 }

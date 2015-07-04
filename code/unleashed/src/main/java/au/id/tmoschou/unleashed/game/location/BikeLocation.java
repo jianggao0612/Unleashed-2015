@@ -7,7 +7,7 @@ public class BikeLocation extends MovementLocation implements
 	
 	public enum BikeTypes {
 		RACK,
-		RENTAL,
+		HIRE,
 		SHOP;
 	};
 	
