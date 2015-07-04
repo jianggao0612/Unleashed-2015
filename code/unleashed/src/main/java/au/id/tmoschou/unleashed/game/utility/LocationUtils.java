@@ -5,21 +5,9 @@ import java.util.ArrayList;
 
 import au.id.tmoschou.unleashed.game.location.LocationEdge;
 import au.id.tmoschou.unleashed.game.location.MovementLocation;
-import au.id.tmoschou.unleashed.game.utility.GameMechanicUtils.Transport;
 
 public class LocationUtils {
-	
-	public static ArrayList<MovementLocation> getNearestMovements(MovementLocation currentLocation) {
-		return null;
-		// TODO use query database to find locations
-	}
-	
-	public static MovementLocation getNearestTransportLocation(MovementLocation currentLocation, Transport currentType, Transport desiredType) {
-		// TODO
-		// if(transportType.avaliableTransport() == desiredType)
-		return null;
-	}
-	
+
 	/**
 	 * 
 	 * @param edge
@@ -27,6 +15,7 @@ public class LocationUtils {
 	 * @param fromStart 
 	 * @return
 	 */
+	@Deprecated
 	public static Point2D.Double getPointAlongPath(LocationEdge edge, double frac, boolean fromStart) {
 		Point2D.Double s = edge.getStartLocation().getVisualPoint();
 		Point2D.Double e = edge.getEndLocation().getVisualPoint();
@@ -37,15 +26,15 @@ public class LocationUtils {
 		
 		return new Point2D.Double(x, y);
 	}
-	
-	public static Point2D.Double convertGeoPointToVisualPoint(Point2D.Double geoPoint) {
-		Point2D.Double result = new Point2D.Double();
+
+	public static Double convertGeoToMetres(Double geoDistance) {
 		// TODO
-		return result;
+		return geoDistance;
 	}
-	
-	public static Double convertGeoLengthToVisualLength(Double geoLength) {
+
+	public static Double convertMetresToGeo(Double metresDistance) {
 		// TODO
-		return geoLength;
+		return metresDistance;
 	}
+
 }

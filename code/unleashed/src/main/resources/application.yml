@@ -8,3 +8,6 @@ management:
 spring:
     resources:
         cache-period: 0
+
+logging.level:
+    au.id.tmoschou: DEBUG
