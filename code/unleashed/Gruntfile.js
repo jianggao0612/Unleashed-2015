@@ -145,6 +145,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default',
                        ['jshint', 'bower-install-simple', 'copy',
-                        'concat', 'uglify', 'sass', 'postcss']);
+                        'concat', 'uglify', 'sass']);
 
 };
