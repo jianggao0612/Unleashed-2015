@@ -8,4 +8,9 @@ public class CheapBike implements IBike {
     public double getCost() {
         return 0.01;
     }
+
+    @Override
+    public double getComfort() {
+        return -1;
+    }
 }

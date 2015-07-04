@@ -2,6 +2,7 @@ package au.id.tmoschou.unleashed.game.utility;
 
 import au.id.tmoschou.unleashed.game.location.GeoPoint;
 import au.id.tmoschou.unleashed.game.location.MovementLocation;
+import au.id.tmoschou.unleashed.game.location.PlayerLocation;
 import au.id.tmoschou.unleashed.game.location.PlayerLocation.Transport;
 import au.id.tmoschou.unleashed.game.manager.GameStats;
 
@@ -19,7 +20,8 @@ public class GameMechanicUtils {
 	public static void initialiseGameVariables() {
 		LocationUtils.setUpRadiusArrays();
 		GameStats.score = 0.0;
-		GameStats.currentLocation = new MovementLocation(new GeoPoint(0.0, 0.0));
+		GameStats.player = new PlayerLocation();
+		GameStats.currentLocation = new MovementLocation(new GeoPoint(-34.92866, 138.59863));
 	}
 
 	/** get current icon type */
@@ -48,7 +50,7 @@ public class GameMechanicUtils {
 		double minDiff = 360.0;
 
 		for(MovementLocation movementLocation : movementLocations) {
-			if(LocationUtils.getDistance(movementLocation.getPoint(), GameStats.currentLocation.getPoint()) > LocationUtils.RADIUS ) {
+			if(LocationUtils.getDistance(movementLocation, GameStats.currentLocation) > LocationUtils.RADIUS ) {
 				continue;
 			}
 			Double tempAngle = MathyUtils.getAngle(clickedPoint, movementLocation.getPoint());
@@ -75,7 +77,28 @@ public class GameMechanicUtils {
 	private static void adjustStats(MovementLocation from, MovementLocation to) {
 		// TODO: adjust stats for moving along a path
 
-		// reward scores
+		double km = 0.001*LocationUtils.convertGeoToMetres(LocationUtils.getDistance(from, to));
+
+		double carbon = 0;
+		double cost = 0;
+
+		switch(GetUtils.getTransportType()) {
+			case BIKE:
+				cost = GameStats.myBike.getCost();
+				break;
+			case CAR:
+				cost = GameStats.myBike.getCost();
+				carbon = GameStats.myCar.getEmission()*km;
+				break;
+		}
+
+		GameStats.carbonEmission -= carbon;
+		GameStats.moneySpent -= cost;
+
+		GameStats.score -= carbon;
+		GameStats.score -= cost;
+
+
 		// road speed
 		// time elapse
 	}

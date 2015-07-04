@@ -1,6 +1,7 @@
 package au.id.tmoschou.unleashed.game.utility;
 
 import au.id.tmoschou.unleashed.game.location.GeoPoint;
+import au.id.tmoschou.unleashed.game.location.Location;
 import au.id.tmoschou.unleashed.game.location.LocationEdge;
 
 import java.util.ArrayList;
@@ -68,9 +69,9 @@ public class LocationUtils {
 		return result;
 	}
 
-	public static double getDistance(GeoPoint a, GeoPoint b) {
-		double sq_x = Math.pow(Math.abs(a.x - b.x),2);
-		double sq_y = Math.pow(Math.abs(a.y - b.y),2);
+	public static double getDistance(Location a, Location b) {
+		double sq_x = Math.pow(Math.abs(a.getPoint().x - b.getPoint().x),2);
+		double sq_y = Math.pow(Math.abs(a.getPoint().y - b.getPoint().y),2);
 		return Math.sqrt(sq_x - sq_y);
 	}
 

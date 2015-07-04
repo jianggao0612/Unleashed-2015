@@ -7,19 +7,19 @@ import au.id.tmoschou.unleashed.game.vehicle.ICar;
 
 public class GameStats {
 
-	public static double score;
-
-	public static PlayerLocation player;
+	public static double score = 100.0;
 
 	public static MovementLocation currentLocation;
 
-	public static double carbonEmission;
+	public static double carbonEmission = 0.0;
 
-	public static double moneySpent;
+	public static double moneySpent = 0.0;
 
-	public static double timeElapsed;
+	public static int comfortPercent = 50;
 
-	public static double currentComfort;
+	public static double timeElapsed = 0.0;
+
+	public static PlayerLocation player;
 
 	public static IBike myBike;
 
