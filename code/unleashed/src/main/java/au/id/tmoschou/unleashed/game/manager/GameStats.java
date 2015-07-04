@@ -1,10 +1,7 @@
 package au.id.tmoschou.unleashed.game.manager;
 
-import java.util.ArrayList;
-
 import au.id.tmoschou.unleashed.game.location.MovementLocation;
 import au.id.tmoschou.unleashed.game.location.PlayerLocation;
-import au.id.tmoschou.unleashed.game.utility.GameMechanicUtils;
 import au.id.tmoschou.unleashed.game.vehicle.IBike;
 import au.id.tmoschou.unleashed.game.vehicle.ICar;
 

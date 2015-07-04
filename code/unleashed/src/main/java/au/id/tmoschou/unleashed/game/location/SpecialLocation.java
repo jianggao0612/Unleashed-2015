@@ -9,4 +9,7 @@ package au.id.tmoschou.unleashed.game.location;
  */
 public class SpecialLocation extends Location {
 
+    public SpecialLocation(GeoPoint mapPoint) {
+        super(mapPoint);
+    }
 }

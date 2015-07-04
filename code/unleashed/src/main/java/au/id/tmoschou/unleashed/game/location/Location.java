@@ -1,17 +1,14 @@
 package au.id.tmoschou.unleashed.game.location;
 
-import java.awt.geom.Point2D;
-import java.awt.geom.Point2D.Double;
-
 public abstract class Location {
 
-	private Point2D.Double point;
+	private GeoPoint point;
 
-	public Location(Double mapPoint) {
+	public Location(GeoPoint mapPoint) {
 		this.point = mapPoint;
 	}
 
-	public Double getPoint() {
+	public GeoPoint getPoint() {
 		return point;
 	}
 	

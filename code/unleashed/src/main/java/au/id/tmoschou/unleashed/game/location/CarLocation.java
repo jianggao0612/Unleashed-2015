@@ -1,9 +1,12 @@
 package au.id.tmoschou.unleashed.game.location;
 
-import au.id.tmoschou.unleashed.game.utility.GameMechanicUtils.Transport;
+import au.id.tmoschou.unleashed.game.location.PlayerLocation.Transport;
 
-public class CarLocation extends MovementLocation implements
-		ITransportLocation {
+public class CarLocation extends MovementLocation implements ITransportLocation {
+
+	public CarLocation(GeoPoint mapPoint) {
+		super(mapPoint);
+	}
 
 	// TODO car types may not be used, the location might be difficult to look up from a dataset or database,
 	// or at any road point a user can switch to car, which just gives negative points if you switch, as if it were a taxi

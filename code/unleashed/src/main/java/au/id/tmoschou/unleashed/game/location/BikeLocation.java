@@ -1,10 +1,13 @@
 package au.id.tmoschou.unleashed.game.location;
 
-import au.id.tmoschou.unleashed.game.utility.GameMechanicUtils.Transport;
+import au.id.tmoschou.unleashed.game.location.PlayerLocation.Transport;
 
-public class BikeLocation extends MovementLocation implements
-		ITransportLocation {
-	
+public class BikeLocation extends MovementLocation implements ITransportLocation {
+
+	public BikeLocation(GeoPoint mapPoint) {
+		super(mapPoint);
+	}
+
 	public enum BikeTypes {
 		RACK,
 		HIRE,

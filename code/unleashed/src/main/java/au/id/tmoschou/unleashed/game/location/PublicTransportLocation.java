@@ -1,10 +1,14 @@
 package au.id.tmoschou.unleashed.game.location;
 
-import au.id.tmoschou.unleashed.game.utility.GameMechanicUtils.Transport;
+import au.id.tmoschou.unleashed.game.location.PlayerLocation.Transport;
 
 public class PublicTransportLocation extends MovementLocation implements
 		ITransportLocation {
-	
+
+	public PublicTransportLocation(GeoPoint mapPoint) {
+		super(mapPoint);
+	}
+
 	public enum PublicTransportTypes {
 		BUS_STOP,
 		TRAIN_STATION,

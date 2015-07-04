@@ -1,6 +1,6 @@
 package au.id.tmoschou.unleashed.game.location;
 
-import au.id.tmoschou.unleashed.game.utility.GameMechanicUtils.Transport;
+import au.id.tmoschou.unleashed.game.location.PlayerLocation.Transport;
 
 /**
  * Interface for a location where a player can switch transport type

@@ -34,7 +34,7 @@ public class PlayerLocation extends Location {
     }
 
     @Override
-    public Point2D.Double getPoint() {
+    public GeoPoint getPoint() {
         return GameStats.currentLocation.getPoint();
     }
 }
