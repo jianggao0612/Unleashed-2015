@@ -1,4 +1,4 @@
-package au.id.tmoschou.unleashed.shftr.service;
+package au.id.tmoschou.unleashed.game.service;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.http.HttpInputMessage;

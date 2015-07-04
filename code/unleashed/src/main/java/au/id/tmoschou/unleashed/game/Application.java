@@ -1,6 +1,6 @@
-package au.id.tmoschou.unleashed.shftr;
+package au.id.tmoschou.unleashed.game;
 
-import au.id.tmoschou.unleashed.shftr.service.SinglePageApplicationMessageConverter;
+import au.id.tmoschou.unleashed.game.service.SinglePageApplicationMessageConverter;
 
 import com.mangofactory.swagger.plugin.EnableSwagger;
 
