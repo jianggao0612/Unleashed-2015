@@ -7,7 +7,7 @@ package au.id.tmoschou.unleashed.game.location;
  * @author Ben
  *
  */
-public class SpecialLocation extends Location {
+public class SpecialLocation extends MovementLocation {
 
     public SpecialLocation(GeoPoint mapPoint) {
         super(mapPoint);

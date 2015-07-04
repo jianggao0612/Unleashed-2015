@@ -6,7 +6,13 @@ package au.id.tmoschou.unleashed.game.location;
  */
 public class MovementLocation extends Location {
 
+    protected String iconType = "ROAD";
+
     public MovementLocation(GeoPoint mapPoint) {
         super(mapPoint);
+    }
+
+    public String getIconType() {
+        return iconType;
     }
 }

@@ -58,21 +58,15 @@ public class LocationUtils {
 	public static ArrayList<GeoPoint> getRadiusPoints(GeoPoint centre) {
 		ArrayList<GeoPoint> result = new ArrayList<>();
 
-		if(_ry == null || _rx == null) {
+		if (_ry == null || _rx == null) {
 			setUpRadiusArrays();
 		}
 
-		for(int i = 0; i< NUM_POINTS; i++) {
-			result.add(new GeoPoint(centre.x+_rx[i], centre.y+_ry[i]));
+		for (int i = 0; i < NUM_POINTS; i++) {
+			result.add(new GeoPoint(centre.x + _rx[i], centre.y + _ry[i]));
 		}
 
 		return result;
-	}
-
-	public static double getDistance(Location a, Location b) {
-		double sq_x = Math.pow(Math.abs(a.getPoint().x - b.getPoint().x),2);
-		double sq_y = Math.pow(Math.abs(a.getPoint().y - b.getPoint().y),2);
-		return Math.sqrt(sq_x - sq_y);
 	}
 
 }

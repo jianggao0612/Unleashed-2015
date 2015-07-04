@@ -27,14 +27,17 @@ public class PlayerLocation extends Location {
         }
     }
 
-    private Transport transportType;
+    private Transport transportType = Transport.WALK;
 
     public Transport getTransportType() {
         return transportType;
     }
+    public void setTransportType(Transport transportType) {
+        this.transportType = transportType;
+    }
 
     @Override
     public GeoPoint getPoint() {
-        return GameStats.currentLocation.getPoint();
+        return GameStats.getInstance().currentLocation.getPoint();
     }
 }
