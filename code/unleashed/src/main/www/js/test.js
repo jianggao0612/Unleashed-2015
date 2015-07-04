@@ -3,9 +3,9 @@
  */
 $(document).ready(function() {
     $.ajax({
-        url: "http://rest-service.guides.spring.io/greeting"
+        url: "http://localhost:8080/test"
     }).then(function(data) {
-        $('.greeting-longitude').append(data.longitude);
-        $('.greeting-latitude').append(data.latitude);
+        $('.test-longitude').append(data.x);
+        $('.test-latitude').append(data.y);
     });
 });
