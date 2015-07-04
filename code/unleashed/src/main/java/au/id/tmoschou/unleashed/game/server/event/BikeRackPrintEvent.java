@@ -7,9 +7,6 @@ public class BikeRackPrintEvent {
     private double longitude;
     private double latitude;
 
-    public BikeRackPrintEvent() {
-    }
-
     public BikeRackPrintEvent(double longitude, double latitude) {
         this.longitude = longitude;
         this.latitude = latitude;
