@@ -4,17 +4,15 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Point2D.Double;
 
 public abstract class Location {
-	
-	protected Point2D.Double visualPoint;
-	protected Point2D.Double geoPoint;
-	
-	
-	public Double getVisualPoint() {
-		return visualPoint;
+
+	private Point2D.Double point;
+
+	public Location(Double mapPoint) {
+		this.point = mapPoint;
 	}
 	
-	public Double getGeoPoint() {
-		return geoPoint;
+	public Double getPoint() {
+		return point;
 	}
 	
 }
