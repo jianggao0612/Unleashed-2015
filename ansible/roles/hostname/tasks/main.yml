@@ -1,0 +1,4 @@
+---
+- name: Add hostname to /etc/hosts with actual IP address
+  lineinfile: dest=/etc/hosts backup=yes
+              line='{{ ansible_default_ipv4.address }} {{ inventory_hostname }} {{ inventory_hostname_short }}'

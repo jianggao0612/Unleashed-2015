@@ -1,0 +1,6 @@
+- hosts: all
+  sudo: yes
+  roles:
+     - { role: ansiblebit.oracle-java, oracle_java_default: yes }
+     - hostname
+     - unleashed
