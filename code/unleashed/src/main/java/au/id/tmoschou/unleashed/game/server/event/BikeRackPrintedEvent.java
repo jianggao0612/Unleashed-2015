@@ -14,10 +14,6 @@ public class BikeRackPrintedEvent {
         this.bikeRackLocations = bikeRackLocations;
     }
 
-    public BikeRackPrintedEvent() {
-
-    }
-
     public ArrayList<Location> getBikeRackLocations() {
         return bikeRackLocations;
     }
