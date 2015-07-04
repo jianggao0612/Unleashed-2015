@@ -5,6 +5,9 @@ import au.id.tmoschou.unleashed.game.location.PlayerLocation;
 import au.id.tmoschou.unleashed.game.vehicle.IBike;
 import au.id.tmoschou.unleashed.game.vehicle.ICar;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class GameStats {
 
 	public static double score;

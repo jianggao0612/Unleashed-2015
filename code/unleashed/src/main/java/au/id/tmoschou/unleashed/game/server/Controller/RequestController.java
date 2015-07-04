@@ -14,8 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RequestController {
-    @Autowired
+
     private BikeRackEventService bikeRackEventService;
+
+    @Autowired
+    public RequestController(BikeRackEventService bikeRackEventService) {
+        this.bikeRackEventService = bikeRackEventService;
+    }
 
     @RequestMapping("/bikerack")
     public BikeRackPrintedEvent printBikeRack (
