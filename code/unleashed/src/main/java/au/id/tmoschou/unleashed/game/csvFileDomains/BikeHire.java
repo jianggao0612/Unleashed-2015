@@ -1,5 +1,8 @@
 package au.id.tmoschou.unleashed.game.csvFileDomains;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({"name", "latitude", "longitude", "price"})
 public class BikeHire {
     private String name;
     private Double latitude;

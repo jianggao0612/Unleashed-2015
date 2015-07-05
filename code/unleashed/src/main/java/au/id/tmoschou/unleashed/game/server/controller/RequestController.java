@@ -1,7 +1,6 @@
 package au.id.tmoschou.unleashed.game.server.controller;
 
-import au.id.tmoschou.unleashed.game.csvFileDomains.BikeRack;
-import au.id.tmoschou.unleashed.game.csvFileDomains.DataSetGenerator;
+import au.id.tmoschou.unleashed.game.csvFileDomains.*;
 import au.id.tmoschou.unleashed.game.location.GeoPoint;
 import au.id.tmoschou.unleashed.game.manager.GameStats;
 import au.id.tmoschou.unleashed.game.server.domain.Point;
@@ -30,7 +29,24 @@ public class RequestController {
         return DataSetGenerator.getBikeRake();
 
     }
+    @RequestMapping(value = "/bikehire", method = RequestMethod.GET)
+    public List<BikeHire> printBikeHire (){
 
+        return DataSetGenerator.getBikeHire();
+
+    }
+    @RequestMapping(value = "/drinkingfountain", method = RequestMethod.GET)
+    public List<DrinkingFountains> printDrinkingFountains (){
+
+        return DataSetGenerator.getDrinkingFountains();
+
+    }
+    @RequestMapping(value = "/parkingmachine", method = RequestMethod.GET)
+    public List<ParkingMachine> printParkingMachine (){
+
+        return DataSetGenerator.getParkingMachine();
+
+    }
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public GeoPoint printPoint (
             @RequestParam(value = "latitude", required = true) String latitude,
