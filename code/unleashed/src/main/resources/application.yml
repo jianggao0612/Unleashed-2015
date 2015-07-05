@@ -11,3 +11,9 @@ spring:
 
 logging.level:
     au.id.tmoschou: DEBUG
+
+# Allow CORS from API Explorer
+cors:
+    allowableOrigins:
+        - http://localhost
+        -
