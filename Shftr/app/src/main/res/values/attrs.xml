@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BaseButton">
+        <attr name="cornerRadius" format="integer">5</attr>
+        <attr name="normalStateColor" format="integer">@color/c1</attr>
+    </declare-styleable>
+</resources>
