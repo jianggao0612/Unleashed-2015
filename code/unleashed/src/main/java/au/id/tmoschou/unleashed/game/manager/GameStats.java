@@ -7,9 +7,12 @@ import au.id.tmoschou.unleashed.game.location.SpecialLocation;
 import au.id.tmoschou.unleashed.game.vehicle.IBike;
 import au.id.tmoschou.unleashed.game.vehicle.ICar;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.springframework.stereotype.Component;
 
 @Component
+@JsonPropertyOrder({"score", "currentLocation", "carbonEmission", "moneySpent", "comfortPercent", "player", "myBike", "myCar", "numGoalsCompleted", "goalLocation"})
 public class GameStats {
 
 	private static GameStats _gameStats = new GameStats();

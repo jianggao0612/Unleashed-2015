@@ -1,6 +1,9 @@
 package au.id.tmoschou.unleashed.game.server.controller;
 
+import au.id.tmoschou.unleashed.game.csvFileDomains.BikeRack;
+import au.id.tmoschou.unleashed.game.csvFileDomains.DataSetGenerator;
 import au.id.tmoschou.unleashed.game.location.GeoPoint;
+import au.id.tmoschou.unleashed.game.manager.GameStats;
 import au.id.tmoschou.unleashed.game.server.domain.Point;
 import au.id.tmoschou.unleashed.game.server.event.BikeRackPrintEvent;
 import au.id.tmoschou.unleashed.game.server.event.BikeRackPrintedEvent;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Gao on 4/07/15.
@@ -20,24 +24,10 @@ import java.util.ArrayList;
 @RestController
 public class RequestController {
 
-    private BikeRackEventService bikeRackEventService;
+    @RequestMapping(value = "/bikerack", method = RequestMethod.GET)
+    public List<BikeRack> printBikeRack (){
 
-    @Autowired
-    public RequestController(BikeRackEventService bikeRackEventService) {
-        this.bikeRackEventService = bikeRackEventService;
-    }
-
-    @RequestMapping("/bikerack")
-    public BikeRackPrintedEvent printBikeRack (
-            @RequestParam(value = "longitude", required = true)  String longitude,
-            @RequestParam(value = "latitude", required = true) String latitude
-    ){
-        double longitudeDouble = Double.parseDouble(longitude);
-        double latitudeDouble = Double.parseDouble(latitude);
-
-        BikeRackPrintEvent bikeRake = new BikeRackPrintEvent(longitudeDouble, latitudeDouble);
-
-        return bikeRackEventService.printBikeRack(bikeRake);
+        return DataSetGenerator.getBikeRake();
 
     }
 
@@ -47,6 +37,11 @@ public class RequestController {
             @RequestParam(value = "longitude", required = true) String longitude
     ) {
         return new GeoPoint(Double.parseDouble(latitude), Double.parseDouble(longitude));
+    }
+
+    @RequestMapping(value = "/stats", method = RequestMethod.GET)
+    public GameStats getGameStats(){
+        return GameStats.getInstance();
     }
 
 

@@ -18,10 +18,9 @@ public class DataSetGenerator {
     public static ArrayList<BikeHire> getBikeHire() {
         String pathname = "AdelaideBikeHire.csv";
         ArrayList<BikeHire> bikeHires= new ArrayList<>();
-
         try{
             File filename = new File(pathname);
-            InputStreamReader reader = new InputStreamReader(new FileInputStream(filename));
+            InputStreamReader reader = new InputStreamReader(DataSetGenerator.class.getResourceAsStream(pathname));
             BufferedReader br = new BufferedReader(reader);
             String line;
             line = br.readLine();
@@ -51,7 +50,7 @@ public class DataSetGenerator {
 
         try{
             File filename = new File(pathname);
-            InputStreamReader reader = new InputStreamReader(new FileInputStream(filename));
+            InputStreamReader reader = new InputStreamReader(DataSetGenerator.class.getResourceAsStream(pathname));
             BufferedReader br = new BufferedReader(reader);
             String line;
             line = br.readLine();
@@ -80,7 +79,7 @@ public class DataSetGenerator {
 
         try{
             File filename = new File(pathname);
-            InputStreamReader reader = new InputStreamReader(new FileInputStream(filename));
+            InputStreamReader reader = new InputStreamReader(DataSetGenerator.class.getResourceAsStream(pathname));
             BufferedReader br = new BufferedReader(reader);
             String line;
             line = br.readLine();
@@ -109,7 +108,7 @@ public class DataSetGenerator {
 
         try{
             File filename = new File(pathname);
-            InputStreamReader reader = new InputStreamReader(new FileInputStream(filename));
+            InputStreamReader reader = new InputStreamReader(DataSetGenerator.class.getResourceAsStream(pathname));
             BufferedReader br = new BufferedReader(reader);
             String line;
             line = br.readLine();

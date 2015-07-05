@@ -1,8 +1,12 @@
 package au.id.tmoschou.unleashed.game.csvFileDomains;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 /**
  * Created by Gao on 5/07/15.
  */
+
+@JsonPropertyOrder({"name", "latitude", "longitude"})
 public class BikeRack {
     private String name;
     private Double latitude;
