@@ -20,9 +20,17 @@
     
     <script type="text/javascript">
     var x, y;
-		
-	var score = 0;
 	
+	var score = 0;
+		function updateScore(){
+			$(document).ready(function() {
+			$('.score').text("Score: " + score);
+		});
+		}
+		
+	
+	var bikeMarker = [];
+	var map = {};
     var markersArray = [];
     var image = 'images/cycling.png';
     var center = new google.maps.LatLng(-34.92866, 138.59863);
@@ -52,16 +60,16 @@
             center: new google.maps.LatLng(-34.92866, 138.59863),
             zoom: 17,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-			//scaleControl: false,
-			//zoomControl: false,
-			//scrollwheel: false,
+			scaleControl: false,
+			zoomControl: false,
+			scrollwheel: false,
 			styles: myStyles,
 			disableDefaultUI: true,
-			//disableDoubleClickZoom: true
+			disableDoubleClickZoom: true
         };
 		
         
-		var map = new google.maps.Map(document.getElementById("map_canvas"),
+		map = new google.maps.Map(document.getElementById("map_canvas"),
           myOptions);
 		
 		marker = new google.maps.Marker({
@@ -70,16 +78,25 @@
             icon: image
         });
 		
+		updateScore();
+		
 		processBikeRacks(map);
-		//window.alert("Starting server test call.");
-		//testServerCall();
-		//window.alert(data.x.value);
-        
+        //processDrink(map);
+		//processParking(map);
         //markersArray.push(marker);
         
         var directionsService = new google.maps.DirectionsService();
 		
+		//google.maps.event.trigger(bikeMarker, 'click', function(event){
+			//hide marker
+			//increment score
+			//window.alert("Hi");
+		//});
+		
         google.maps.event.addListener(map, 'click', function(event) {
+			score = score + 10;
+			updateScore();
+			
             //deleteOverlays();
             var request = {
                 origin:event.latLng, 
@@ -100,6 +117,7 @@
                     map.panTo(event.latLng);
                 }
             });
+			
         });
     }
     
@@ -115,16 +133,22 @@
     function selectImgCar(){
         image = 'images/car.png';
         marker.setIcon(image);
+		//clearMarkers();
+		processParking(map);
     }
     
     function selectImgBike(){
         image = 'images/cycling.png';
         marker.setIcon(image);
+		//clearMarkers();
+		processBikeRacks(map);
 	}
 	
     function selectImgWalk(){
         image = 'images/walk.png';
         marker.setIcon(image);
+		//clearMarkers();
+		processDrink(map);
     }
     
     function calcDist(){
@@ -133,30 +157,73 @@
 	
 	
 	function processBikeRacks(map){
-		$(document).ready(function() {
 			$.ajax({url: "http://unleashed.tmoschou.id.au:8080/bikerack",
 				dataType: "json"
 				}).done(function(data) {
-				//var bikeMarker;
 				//var bikerackImg = "images/bikerack.png";
-					for (i = 0; i < data.length; i=i+4) {
+					for (i = 0; i < data.length; i=i+5) {
 						var lat = data[i].latitude;
 						var lon = data[i].longitude;
 						var name = data[i].name;
-						window.alert(lat);
-						window.alert(lon);
-						window.alert(name);
+						//window.alert(lat);
+						//window.alert(lon);
+						//window.alert(name);
 						//add racks
-						var bikeMarker = new google.maps.Marker({
+						var newBike = new google.maps.Marker({
             				position: new google.maps.LatLng(lon, lat),
-            				map: map
+            				map: map,
 							//icon: bikerackImg
-						});
+						})
+						//bikeMarker.push(newBike);
 					}
 			});
+	}
+	
+		
+	function processParking(map){
+			$.ajax({url: "http://unleashed.tmoschou.id.au:8080/parkingmachine",
+				dataType: "json"
+				}).done(function(dataPark) {
+				//var bikeMarker;
+				//var bikerackImg = "images/bikerack.png";
+					for (j = 0; j < dataPark.length; ++j) {
+						var latPark = dataPark[j].latitude;
+						var lonPark = dataPark[j].longitude;
+						var namePark = dataPark[j].name;
+						//window.alert(lat);
+						//window.alert(lon);
+						//window.alert(name);
+						//add racks
+						var parkingMarker = new google.maps.Marker({
+            				position: new google.maps.LatLng(latPark, lonPark),
+            				map: map
+						});
+						bikeMarker.push(parkingMarker);
+					}
 		});
 	}
 	
+	function processDrink(map){
+			$.ajax({url: "http://unleashed.tmoschou.id.au:8080/drinkingfountain",
+				dataType: "json"
+				}).done(function(dataDrink) {
+				//var bikeMarker;
+				//var bikerackImg = "images/bikerack.png";
+					for (k = 0; k < dataDrink.length; ++k) {
+						var latWalk = dataDrink[k].latitude;
+						var lonWalk = dataDrink[k].longitude;
+						var nameWalk = dataDrink[k].name;
+						//window.alert(lat);
+						//window.alert(lon);
+						//window.alert(name);
+						//add racks
+						var drinkMarker = new google.maps.Marker({
+            				position: new google.maps.LatLng(latWalk, lonWalk),
+            				map: map
+						});
+					}
+		});
+	}
 	
 	function testServerCall(){
 		$(document).ready(function() {
@@ -201,18 +268,17 @@
 			<input type="radio" name="myRadio" id="radioWalk" onClick="selectImgWalk();" value="Walk" /> Walk<br>
         </form>
 		<br>
-		Score: <br>
-		Goal completed: <br>
+		<p class="score">Score: </p>
+		<!-- Goal completed: <br>
 		Comfort: bar(0-100) <br>
 		Carbon emissions: <br>
 		Money: <br>
 		Transportation type: <br>
 		<br>
-		Timer: Bar? and seconds value<br>
+		Timer: Bar? and seconds value<br>-->
 		<div class="progress">
-		  <div class="progress-bar" role="progressbar" aria-valuenow="70"
+		  <div class="progress-bar" id="score" role="progressbar" aria-valuenow="70"
 		    aria-valuemin="0" aria-valuemax="100" style="width:70%">
-			70/100
 		  </div>
 		</div>
 			<img src="images/logo.png" alt="Shftr Logo" style="width: 100%;" />
